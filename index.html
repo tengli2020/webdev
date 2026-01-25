@@ -1,14 +1,85 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en">
 <head>
-    <title>My Simple Page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Personal website landing page">
+    <title>Your Name — Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#">Your Name</a>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <h1>Hello, World!</h1>
-    <p>This is my first simple HTML page. It contains a main heading and one paragraph of text.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <h1>Hi — I’m Your Name.</h1>
+                    <p class="tagline">I build thoughtful web experiences. I design, code, and ship products that people enjoy using.</p>
+                    <p class="cta-row">
+                        <a class="btn" href="mailto:hello@example.com">Get in touch</a>
+                        <a class="btn ghost" href="#projects">See projects</a>
+                    </p>
+                    <p class="social">
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                                <path fill="currentColor" d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.9 3.18 9.06 7.6 10.52.56.1.76-.24.76-.53 0-.26-.01-1.12-.01-2.03-3.09.67-3.74-.75-3.98-1.44-.13-.36-.7-1.44-1.2-1.73-.41-.25-1-.87-.01-.89.93-.03 1.59.86 1.81 1.22 1.06 1.78 2.76 1.27 3.43.97.1-.76.41-1.27.74-1.56-2.77-.31-5.69-1.39-5.69-6.18 0-1.37.49-2.49 1.29-3.37-.13-.32-.56-1.62.12-3.37 0 0 1.05-.34 3.44 1.28 1-.28 2.06-.42 3.12-.42 1.06 0 2.12.14 3.12.42 2.38-1.62 3.43-1.28 3.43-1.28.69 1.75.26 3.05.13 3.37.8.88 1.29 2 1.29 3.37 0 4.8-2.93 5.86-5.72 6.17.42.36.8 1.08.8 2.18 0 1.57-.01 2.83-.01 3.21 0 .29.2.64.77.53C19.07 20.8 22.25 16.64 22.25 11.75 22.25 5.48 17.27.5 12 .5z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                                <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v14H0zM7.5 8h4.79v1.93h.07c.67-1.27 2.3-2.6 4.73-2.6C22.55 7.33 24 9.8 24 13.58V22h-5v-7.78c0-1.86-.03-4.25-2.59-4.25-2.6 0-3 2.03-3 4.12V22H7.5z"/>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <div class="hero-media" aria-hidden>
+                    <svg class="avatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6EE7B7"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
+                        <rect width="200" height="200" rx="20" fill="url(#g)"/>
+                        <circle cx="100" cy="80" r="36" fill="#fff" opacity="0.9"/>
+                        <rect x="44" y="132" width="112" height="34" rx="8" fill="#fff" opacity="0.9"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
 
+        <section id="about" class="section container">
+            <h2>About</h2>
+            <p>Short intro about you. Replace this with a concise summary of what you do, the technologies you work with, and what kinds of projects you enjoy.</p>
+        </section>
+
+        <section id="projects" class="section container">
+            <h2>Selected Projects</h2>
+            <ul class="projects">
+                <li><strong>Project A</strong> — Short description and link.</li>
+                <li><strong>Project B</strong> — Short description and link.</li>
+                <li><strong>Project C</strong> — Short description and link.</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section container">
+            <h2>Contact</h2>
+            <p>Want to work together or say hi? Email <a href="mailto:hello@example.com">hello@example.com</a>.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">© <span id="year"></span> Your Name — Built with ❤️</div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
