@@ -1,0 +1,46 @@
+:root{
+  --bg: #0f172a;
+  --card: rgba(255,255,255,0.06);
+  --muted: rgba(255,255,255,0.7);
+  --accent: linear-gradient(90deg,#6EE7B7,#3B82F6);
+  --max-width: 1100px;
+  --radius: 12px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(59,130,246,0.08), transparent),
+              radial-gradient(1000px 500px at 90% 90%, rgba(110,231,183,0.06), transparent),
+              var(--bg);
+  color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:2rem}
+.site-header{backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{font-weight:700;color:inherit;text-decoration:none}
+.nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
+.hero{padding:6rem 0}
+.hero-inner{display:grid;grid-template-columns:1fr 320px;gap:2.5rem;align-items:center}
+.hero-text h1{font-size:2.4rem;margin:0 0 .5rem}
+.tagline{color:var(--muted);margin:0 0 1.25rem}
+.cta-row{margin:1rem 0}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.12);color:inherit;text-decoration:none}
+.btn.ghost{background:transparent;opacity:0.9}
+.social a{margin-right:.6rem;color:var(--muted);display:inline-flex;align-items:center}
+.hero-media{display:flex;justify-content:center}
+.avatar{width:100%;max-width:320px;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+.section{padding:3rem 0;border-top:1px solid rgba(255,255,255,0.02);background:transparent}
+.projects{list-style:none;padding:0;margin:0}
+.projects li{padding:.5rem 0;color:var(--muted)}
+.site-footer{padding:2rem 0;color:var(--muted);font-size:.9rem}
+@media (max-width:880px){
+  .hero-inner{grid-template-columns:1fr;grid-auto-rows:auto;text-align:center}
+  .hero-media{order:-1}
+  .nav{display:none}
+}
+@media (prefers-color-scheme:light){
+  :root{--bg:#f6fbff;color-scheme:light}
+  body{color:#0b1220}
+  .site-header{background:transparent}
+  .btn{border-color:rgba(11,18,32,0.08)}
+}
