@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Project B — Home Improvement</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Sweet Konar</a>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Project A — Gardening</h1>
+    <p>Details about Project A: Gardening</p>
+    <div class="hero-media" aria-hidden>
+      <img src="A/door.jpeg" alt="Konar" class="avatar">
+    </div>
+  
+    <!-- Photo Gallery Section -->
+    <section class="photo-gallery">
+      <h2>beautiful</h2>
+      <div class="gallery-grid">
+        <!-- Add your photos here -->
+        <div class="gallery-item">
+          <img src="A/pincushion_small.jpeg" alt="Pin Cushion" loading="lazy">
+          <div class="gallery-caption">Pin Cushion</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/pincushion4.jpeg" alt="Pin Cushion" loading="lazy">
+          <div class="gallery-caption">Pin Cushion</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/pincushion3_small.jpeg" alt="Pin Cushion" loading="lazy">
+          <div class="gallery-caption">Pin Cushion</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose17.jpeg" alt="Rose7" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose11.jpeg" alt="Rose8" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose12.jpeg" alt="Rose9" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose1.jpeg" alt="Rose1" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose2.jpeg" alt="Rose2" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose3.jpeg" alt="Rose3" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose4.jpeg" alt="Rose4" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose5.jpeg" alt="Rose5" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose6.jpeg" alt="Rose6" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose7.jpeg" alt="Rose7" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose8.jpeg" alt="Rose8" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose9.jpeg" alt="Rose9" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/lemon_guava.jpeg" alt="Lemon Guava" loading="lazy">
+          <div class="gallery-caption">Lemon Guava</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/kumquat.jpeg" alt="Kumquat" loading="lazy">
+          <div class="gallery-caption">Kumquat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="A/rose14.jpeg" alt="Rose14" loading="lazy">
+          <div class="gallery-caption">Rose</div>
+        </div>
+        <!-- Add more gallery items as needed -->
+      </div>
+    </section>
+
+    <p><a href="/">← Back to home</a></p>
+  </main>
+  <footer class="site-footer container">© <span id="year"></span> Sweet Konar</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      const lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.innerHTML = `
+        <div class="lightbox-overlay">
+          <div class="lightbox-content">
+            <img src="" alt="">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-close">&times;</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const lightboxClose = lightbox.querySelector('.lightbox-close');
+      const lightboxOverlay = lightbox.querySelector('.lightbox-overlay');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxCaption.textContent = this.alt;
+          lightbox.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxOverlay.addEventListener('click', function(e) {
+        if (e.target === lightboxOverlay) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

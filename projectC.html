@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Project C — Be Creative</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Sweet Konar</a>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Project C — Be Creative</h1>
+    <p>Details about Project C: Be Creative.</p>
+
+    <!-- Photo Gallery Section -->
+    <section class="photo-gallery">
+      <h2>Photos</h2>
+      <div class="gallery-grid">
+        <!-- Add your photos here -->
+        <div class="gallery-item">
+          <img src="C/1.jpeg" alt="Cute cat key chain" loading="lazy">
+          <div class="gallery-caption">Cute cat key chain</div>
+        </div>
+        <div class="gallery-item">
+          <img src="C/2.jpeg" alt="Cute cat key chain" loading="lazy">
+          <div class="gallery-caption">Cute cat key chain</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo3.jpg" alt="TBD" loading="lazy">
+          <div class="gallery-caption">After</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo4.jpg" alt="TBD" loading="lazy">
+          <div class="gallery-caption">Detail View</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo5.jpg" alt="TBD" loading="lazy">
+          <div class="gallery-caption">Another Angle</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo6.jpg" alt="TBD" loading="lazy">
+          <div class="gallery-caption">Final Result</div>
+        </div>
+        <!-- Add more gallery items as needed -->
+      </div>
+    </section>
+
+    <p><a href="/">← Back to home</a></p>
+  </main>
+  <footer class="site-footer container">© <span id="year"></span> Sweet Konar</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      const lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.innerHTML = `
+        <div class="lightbox-overlay">
+          <div class="lightbox-content">
+            <img src="" alt="">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-close">&times;</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const lightboxClose = lightbox.querySelector('.lightbox-close');
+      const lightboxOverlay = lightbox.querySelector('.lightbox-overlay');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxCaption.textContent = this.alt;
+          lightbox.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxOverlay.addEventListener('click', function(e) {
+        if (e.target === lightboxOverlay) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
